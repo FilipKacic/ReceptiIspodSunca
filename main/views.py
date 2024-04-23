@@ -3,5 +3,4 @@ from django.http import HttpResponse
 
 ## Create your views here.
 def homepage(request):
-    return HttpResponse('Welcome to homepage! <strong>#samoOIRI</strong>')
-    # primjetiti korištenje HTML-a
+    return HttpResponse('Dobrodošli na početnu stranicu!')
