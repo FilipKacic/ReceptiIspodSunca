@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recepti Ispod Sunca</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Recepti Ispod Sunca</h1>
+        <nav>
+            <ul>
+                <li><a href="/main/homepage">Početna stranica</a></li>
+                <li><a href="/main/recipes">Recepti</a></li>
+                <li><a href="/accounts/login">Login</a></li>
+                <li><a href="/accounts/register">Registracija</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </main>
+    <footer>
+        <p>Filip Kačić</p>
+    </footer>
+</body>
+</html>

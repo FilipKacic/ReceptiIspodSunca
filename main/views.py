@@ -1,6 +1,8 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
 ## Create your views here.
 def homepage(request):
-    return HttpResponse('Dobrodošli na početnu stranicu!')
+    return render(request, 'main/homepage.html')
+
+def recipes(request):
+    return render(request, 'main/recipes.html')

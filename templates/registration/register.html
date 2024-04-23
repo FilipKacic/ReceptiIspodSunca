@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+{% block content %}
+    <form method="post" action="{% url 'register' %}">
+        {% csrf_token %}
+
+        {% if form.errors %}
+            <p>Greška.</p>
+        {% endif %}
+
+        {{ form }}
+
+        <input type="submit" value="Register" />
+    </form>
+{% endblock %}
