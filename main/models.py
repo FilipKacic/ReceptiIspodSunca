@@ -22,9 +22,9 @@ class Recipe(models.Model):
     equipment = models.ManyToManyField(Equipment)
     ingredients = models.ManyToManyField(Ingredient)
 
-    preparationTimeNeeded = models.IntegerField()
-    preparationTimeMeasuringUnit = models.CharField(max_length=8, default='minutes')
-    preparationItself = models.TextField()
+    timeNeeded = models.IntegerField(default='0')
+    timeNeededMeasuringUnit = models.CharField(max_length=8, default='minuta')
+    preperation = models.TextField()
 
     def __str__(self):
         return self.name

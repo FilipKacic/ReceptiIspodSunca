@@ -11,12 +11,27 @@
 <body>
     <header>
         <h1>Recepti Ispod Sunca</h1>
+        {% if user.is_authenticated %}
+            <p>Prijavljeni korisnik: {{ user.username }}</p>
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Odjavi se">
+            </form>
+        {% else %}
+            <ul>
+                <li><a href="/accounts/login">Prijava</a></li>
+                {% block login %}
+                {% endblock %}
+                <li><a href="/accounts/register">Registracija</a></li>
+                {% block register %}
+                {% endblock %}
+            </ul>
+        {% endif %}
         <nav>
             <ul>
                 <li><a href="/main/homepage">Početna stranica</a></li>
                 <li><a href="/main/recipes">Recepti</a></li>
-                <li><a href="/accounts/login">Login</a></li>
-                <li><a href="/accounts/register">Registracija</a></li>
+                <li><a href="/main/write_a_recipe">Napiši recept</a></li>
             </ul>
         </nav>
     </header>
@@ -27,7 +42,7 @@
         </div>
     </main>
     <footer>
-        <p>Filip Kačić</p>
+        <p><i>Filip Kačić</i></p>
     </footer>
 </body>
 </html>

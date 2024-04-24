@@ -1,0 +1,8 @@
+{% extends "base_generic.html" %}
+
+{% block logout %}
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Odjavi se">
+    </form>
+{% endblock %}

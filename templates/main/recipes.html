@@ -1,4 +1,9 @@
 {% extends "base_generic.html" %}
 {% block content %}
     <h2>Recepti</h2>
+    <ul>
+        {% for recipe in recipes %}
+        <li>{{ recipe.name }}</li>
+        {% endfor %}
+    </ul>
 {% endblock %}

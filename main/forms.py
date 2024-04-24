@@ -2,6 +2,9 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import redirect, render
 
+from django import forms
+from .models import Recipe
+
 def register(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -21,3 +24,17 @@ def register(request):
 
     context = {'form': form}
     return render(request, 'registration/register.html', context)
+
+
+class RecipeForm(forms.ModelForm):
+    class Meta:
+        model = Recipe
+        fields = ['name', 'equipment', 'ingredients', 'timeNeeded', 'timeNeededMeasuringUnit', 'preperation']
+        labels = {
+            'name': 'Naziv', 
+            'equipment': 'Oprema', 
+            'ingredients': 'Sastojci', 
+            'timeNeeded': 'Potrebno vrijeme za pripremu', 
+            'timeNeededMeasuringUnit': 'Mjerna jedinica potrebnog vremena za pripremu', 
+            'preperation': 'Priprema'
+        }
