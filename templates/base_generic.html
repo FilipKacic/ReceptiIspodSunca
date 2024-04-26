@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recepti Ispod Sunca</title>
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"> 
 </head>
 <body>
     <header>
@@ -18,22 +18,24 @@
                 <input type="submit" value="Odjavi se">
             </form>
         {% else %}
-            <ul>
-                <li><a href="/accounts/login">Prijava</a></li>
-                {% block login %}
-                {% endblock %}
-                <li><a href="/accounts/register">Registracija</a></li>
-                {% block register %}
-                {% endblock %}
-            </ul>
+            <div id="authentification">
+                <ul>
+                    <li><a href="/accounts/login">Prijava</a></li>
+                    {% block login %}
+                    {% endblock %}
+                    <li><a href="/accounts/register">Registracija</a></li>
+                    {% block register %}
+                    {% endblock %}
+                </ul>
+            </div>
         {% endif %}
-        <nav>
-            <ul>
-                <li><a href="/main/homepage">Početna stranica</a></li>
-                <li><a href="/main/recipes">Recepti</a></li>
-                <li><a href="/main/write_a_recipe">Napiši recept</a></li>
-            </ul>
-        </nav>
+            <nav>
+                <ul>
+                    <li><a href="/main/homepage">Početna stranica</a></li>
+                    <li><a href="/main/recipes">Recepti</a></li>
+                    <li><a href="/main/write_a_recipe">Napiši recept</a></li>
+                </ul>
+            </nav>
     </header>
     <main>
         <div class="content">
@@ -42,7 +44,9 @@
         </div>
     </main>
     <footer>
-        <p><i>Filip Kačić</i></p>
+        <h3>Propovjednik 1:9</h3>
+        <p><i>„Što je bilo, opet će biti, i što se činilo, opet će se činiti, i nema ništa novo pod suncem.“</i></p>
     </footer>
+    <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>

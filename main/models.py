@@ -23,6 +23,12 @@ class Recipe(models.Model):
     equipment = models.ManyToManyField(Equipment)
     ingredients = models.ManyToManyField(Ingredient)
     time_needed = models.IntegerField()
+    TIME_UNITS = (
+        ('min', 'min'),
+        ('ura', 'h'),
+        ('dan', 'dan(a)'),
+    )
+    time_measurement_unit = models.CharField(max_length=7, choices=TIME_UNITS, default=False)
 
     preperation = models.TextField()
 

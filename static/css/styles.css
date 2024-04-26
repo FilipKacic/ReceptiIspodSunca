@@ -1,0 +1,96 @@
+@font-face {
+    font-family: 'CustomFont1';
+    src: url('../fonts/Sofia/Sofia-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'CustomFont2';
+    src: url('../fonts/Itim/Itim-Regular.ttf');
+}
+
+:root {
+    /* color pallete */
+    --color-primary-dark: DarkSlateGray;
+    --color-primary-light: LightYellow;
+    --color-secondary-dark: DarkOliveGreen;;
+    --color-secondary-light: LightSlateGray;
+
+    /* time synchronization */
+    --time-blink: 0.3s;
+
+    /* space synchronization */
+    --space-smallest: 0.1em;
+    --space-small: 1em;
+}
+
+/* BODY */
+body {
+    font-family: 'CustomFont2';
+    box-sizing: border-box;
+    margin: 0;
+    color: var(--color-primary-dark);
+    background-color: var(--color-primary-light);
+    text-align: justify;
+}
+
+input, select, textarea, button {
+    font-family: 'CustomFont2';
+}
+
+/* HEADER */
+header {
+    color: var(--color-primary-light);
+    background-color: var(--color-secondary-dark);
+    padding: var(--space-small);
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'CustomFont1';
+    text-align: center;
+    margin: var(--space-smallest);
+    padding: var(--space-smallest);
+}
+ul {
+    list-style: none;
+    padding-inline-start: 0;
+    margin: 0;
+}
+li {
+    margin: var(--space-smallest);
+    padding: var(--space-smallest);
+}
+a {
+    color: inherit;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: var(--space-smallest);
+    border-radius: var(--space-smallest);
+    transition: background-color var(--time-blink) ease, color var(--time-blink) ease;;
+}
+a:hover {
+    color: var(--color-secondary-dark);
+    background-color: var(--color-primary-light);
+}
+p {
+    margin: var(--space-smallest);
+    padding: var(--space-smallest);
+}
+
+/* MAIN */
+main {
+    background-color: inherit;
+    padding: var(--space-small);
+}
+
+/* FOOTER */
+footer {
+    color: var(--color-secondary-light);
+    background-color: var(--color-primary-dark);
+    padding: var(--space-small);
+    text-align: center;
+}
+
+/* spice */
+::selection {
+    color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(0, 0, 0, 0.8);
+}
