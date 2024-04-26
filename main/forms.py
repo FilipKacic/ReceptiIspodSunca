@@ -25,16 +25,14 @@ def register(request):
     context = {'form': form}
     return render(request, 'registration/register.html', context)
 
-
 class RecipeForm(forms.ModelForm):
     class Meta:
         model = Recipe
-        fields = ['name', 'equipment', 'ingredients', 'timeNeeded', 'timeNeededMeasuringUnit', 'preperation']
+        fields = ['name', 'equipment', 'ingredients', 'time_needed', 'preperation']
         labels = {
             'name': 'Naziv', 
             'equipment': 'Oprema', 
             'ingredients': 'Sastojci', 
-            'timeNeeded': 'Potrebno vrijeme za pripremu', 
-            'timeNeededMeasuringUnit': 'Mjerna jedinica potrebnog vremena za pripremu', 
+            'time_needed': 'Potrebno vrijeme za pripremu',
             'preperation': 'Priprema'
         }

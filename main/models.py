@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Equipment(models.Model):
@@ -16,14 +17,13 @@ class Ingredient(models.Model):
 class Recipe(models.Model):
     name = models.CharField(max_length=64, unique=True)
 
-    # respectedUser = models.CharField()
+    author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     # numberOfSuns = models.IntegerField(default=0)
 
     equipment = models.ManyToManyField(Equipment)
     ingredients = models.ManyToManyField(Ingredient)
+    time_needed = models.IntegerField()
 
-    timeNeeded = models.IntegerField(default='0')
-    timeNeededMeasuringUnit = models.CharField(max_length=8, default='minuta')
     preperation = models.TextField()
 
     def __str__(self):

@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse
 
 from .models import Recipe
 from .forms import RecipeForm
@@ -15,8 +16,18 @@ def write_a_recipe(request):
     if request.method == 'POST':
         form = RecipeForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('recipe_list')  # Redirect to a page displaying a list of recipes
+            # Check if the user is authenticated
+            if request.user.is_authenticated:
+                # Assign the logged-in user as the author of the recipe
+                author = request.user
+            else:
+                # If the user is not logged in, set the author to "Anonymous"
+                author = None  # Or None
+            # Save the recipe with the appropriate author
+            recipe = form.save(commit=False)
+            recipe.author = author
+            recipe.save()
+            return redirect(reverse('main:recipes'))  # Redirect to a page displaying a list of recipes
     else:
         form = RecipeForm()
     return render(request, 'main/write_a_recipe.html', {'form': form})
