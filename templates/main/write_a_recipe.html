@@ -13,6 +13,10 @@
             {{ form.name }}
         </div>
         <div class="form-group">
+            <label for="{{ form.category.id_for_label }}">Kategorija:</label>
+            {{ form.category }}
+        </div>
+        <div class="form-group">
             <label for="{{ form.equipment.id_for_label }}">Oprema:</label>
             {{ form.equipment }}
         </div>
@@ -25,10 +29,6 @@
             {{ form.time_needed }}
             <label for="{{ form.time_measurement_unit.id_for_label }}"></label>
             {{ form.time_measurement_unit }}
-        </div>
-        <div class="form-group">
-            <label for="{{ form.category.id_for_label }}">Kategorija:</label>
-            {{ form.category }}
         </div>
         <div class="form-group">
             <label for="{{ form.preperation.id_for_label }}">Priprema:</label>

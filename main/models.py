@@ -22,6 +22,7 @@ class Recipe(models.Model):
 
     equipment = models.ManyToManyField(Equipment)
     ingredients = models.ManyToManyField(Ingredient)
+    
     time_needed = models.IntegerField()
     TIME_UNITS = (
         ('min', 'min'),

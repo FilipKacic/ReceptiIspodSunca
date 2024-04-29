@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import redirect, render
 
 from django import forms
-from .models import Recipe
+from .models import *
 
 def register(request):
     if request.method == 'POST':
@@ -26,6 +26,12 @@ def register(request):
     return render(request, 'registration/register.html', context)
 
 class RecipeForm(forms.ModelForm):
+
+
     class Meta:
         model = Recipe
-        fields = ['name', 'equipment', 'ingredients', 'time_needed', 'time_measurement_unit', 'category', 'preperation']
+        fields = ['name', 'category', 'equipment', 'ingredients', 'time_needed', 'time_measurement_unit', 'preperation']
+        widgets = {
+            'equipment': forms.CheckboxSelectMultiple(),
+            'ingredients': forms.CheckboxSelectMultiple(),
+        }
