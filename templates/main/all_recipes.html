@@ -1,0 +1,23 @@
+{% extends "base_generic.html" %}
+{% block content %}
+    <h2>Recepti</h2>
+    <form method="GET" class="form-group">
+        <input type="text" name="search_query" placeholder="Pretraži...">
+        <button type="submit">Pretraži</button>
+    </form>
+    <form method="GET" class="form-group">
+        <select name="category">
+            <option value="">Sve kategorije</option>
+            <option value="drink">Piće</option>
+            <option value="food">Hrana</option>
+            <option value="medicine">Lijek</option>
+        </select>
+        <button type="submit">Filtriraj</button>
+    </form>
+    <hr>
+    <ul>
+        {% for recipe in filtered_recipes %}
+            <li>„{{ recipe.name }}“, autor: {{ recipe.author }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

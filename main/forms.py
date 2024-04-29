@@ -26,12 +26,6 @@ def register(request):
     return render(request, 'registration/register.html', context)
 
 class RecipeForm(forms.ModelForm):
-
-
     class Meta:
         model = Recipe
         fields = ['name', 'category', 'equipment', 'ingredients', 'time_needed', 'time_measurement_unit', 'preperation']
-        widgets = {
-            'equipment': forms.CheckboxSelectMultiple(),
-            'ingredients': forms.CheckboxSelectMultiple(),
-        }

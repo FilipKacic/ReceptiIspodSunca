@@ -37,6 +37,11 @@ input, select, textarea, button {
     font-family: 'CustomFont2';
 }
 
+hr {
+    margin: var(--space-small);
+    border-width: var(--space-smallest);
+}
+
 /* HEADER */
 header {
     color: var(--color-primary-light);
@@ -74,7 +79,6 @@ p {
     margin: var(--space-smallest);
     padding: var(--space-smallest);
 }
-
 /* MAIN */
 main {
     background-color: inherit;
@@ -87,6 +91,11 @@ footer {
     background-color: var(--color-primary-dark);
     padding: var(--space-small);
     text-align: center;
+}
+
+/* SPECIFIC */
+.form-group {
+    margin-bottom: 1em;
 }
 
 /* spice */
