@@ -28,12 +28,4 @@ def register(request):
 class RecipeForm(forms.ModelForm):
     class Meta:
         model = Recipe
-        fields = ['name', 'equipment', 'ingredients', 'time_needed', 'time_measurement_unit', 'preperation']
-        # labels = {
-        #     'name': 'Naziv', 
-        #     'equipment': 'Oprema', 
-        #     'ingredients': 'Sastojci', 
-        #     'time_needed': 'Vrijeme potrebno za pripremu',
-        #     'time_measurement_unit': '',
-        #     'preperation': 'Priprema'
-        # }
+        fields = ['name', 'equipment', 'ingredients', 'time_needed', 'time_measurement_unit', 'category', 'preperation']

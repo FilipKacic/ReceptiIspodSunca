@@ -26,11 +26,18 @@ class Recipe(models.Model):
     TIME_UNITS = (
         ('min', 'min'),
         ('ura', 'h'),
-        ('dan', 'dan(a)'),
+        ('dan', 'dan'),
     )
-    time_measurement_unit = models.CharField(max_length=7, choices=TIME_UNITS, default=False)
+    time_measurement_unit = models.CharField(max_length=8, choices=TIME_UNITS, default=False)
 
     preperation = models.TextField()
+
+    CATEGORIES = (
+        ('drink', 'Piće'),
+        ('food', 'Hrana'),
+        ('medicine', 'Lijek'),
+    )
+    category = models.CharField(max_length=8, choices=CATEGORIES, default=False)
 
     def __str__(self):
         return self.name
