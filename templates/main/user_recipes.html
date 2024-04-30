@@ -17,7 +17,11 @@
     <hr>
     <ul>
         {% for recipe in filtered_recipes %}
-            <li>{{ recipe.name }}</li>
+            <li>
+                {{ recipe.name }}
+                <a href="{% url 'main:user_edit_recipe' recipe.id %}" class="btn btn-primary"><button>Uredi</button>
+                <a href="{% url 'main:user_delete_recipe' recipe.id %}" class="btn btn-primary"><button>Pobriši</button></a>
+            </li>
         {% endfor %}
     </ul>
 {% endblock %}
