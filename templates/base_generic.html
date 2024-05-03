@@ -10,15 +10,14 @@
 </head>
 <body>
     <header>
-        <h1>Recepti Ispod Sunca</h1>
-        {% if user.is_authenticated %}
+        <div id="authentification">
+            {% if user.is_authenticated %}
             <p>Prijavljeni korisnik: {{ user.username }}</p>
             <form action="{% url 'logout' %}" method="post">
                 {% csrf_token %}
                 <input type="submit" value="Odjavi se">
             </form>
-        {% else %}
-            <div id="authentification">
+            {% else %}
                 <ul>
                     <li><a href="/accounts/login">Prijava</a></li>
                     {% block login %}
@@ -27,8 +26,9 @@
                     {% block register %}
                     {% endblock %}
                 </ul>
-            </div>
-        {% endif %}
+            {% endif %}
+        </div>
+        <h1>Recepti Ispod Sunca</h1>
             <nav>
                 <ul>
                     <li><a href="/main/homepage">Početna stranica</a></li>

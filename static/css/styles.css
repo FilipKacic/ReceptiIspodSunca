@@ -48,6 +48,11 @@ header {
     background-color: var(--color-secondary-dark);
     padding: var(--space-small);
 }
+#authentification {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: left;
+}
 h1, h2, h3, h4, h5, h6 {
     font-family: 'CustomFont1';
     text-align: center;
@@ -55,6 +60,9 @@ h1, h2, h3, h4, h5, h6 {
     padding: var(--space-smallest);
 }
 ul {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
     list-style: none;
     padding-inline-start: 0;
     margin: 0;
