@@ -17,7 +17,7 @@
     <hr>
     <ul>
         {% for recipe in filtered_recipes %}
-            <li><a href="{% url 'main:recipe' recipe_id=recipe.id %}">„{{ recipe.name }}“</a>, autor: {{ recipe.author }}</li>
+            <li><a href="{% url 'main:recipe' recipe_id=recipe.id %}">„{{ recipe.name }}“</a> ~ {{ recipe.author }}</li>
         {% endfor %}
     </ul>
 {% endblock %}

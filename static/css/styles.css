@@ -33,6 +33,12 @@ body {
     text-align: justify;
 }
 
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 input, select, textarea, button {
     font-family: 'CustomFont2';
 }
@@ -48,17 +54,24 @@ header {
     background-color: var(--color-secondary-dark);
     padding: var(--space-small);
 }
+
 header #authentification {
     display: flex;
     flex-wrap: nowrap;
-    align-items: left;
+    align-items: right;
 }
+header p {
+    margin: var(--space-smallest);
+    padding: var(--space-smallest);
+}
+
 header h1, h2, h3, h4, h5, h6 {
     font-family: 'CustomFont1';
     text-align: center;
     margin: var(--space-smallest);
     padding: var(--space-smallest);
 }
+
 header ul {
     display: flex;
     flex-wrap: nowrap;
@@ -67,30 +80,34 @@ header ul {
     padding-inline-start: 0;
     margin: 0;
 }
-header li {
+header ul li {
     margin: var(--space-smallest);
     padding: var(--space-small);
 }
-header a {
+header ul li a {
     color: inherit;
     text-decoration: none;
     text-transform: uppercase;
-    padding: var(--space-small); /* same as li padding */
     border-radius: var(--space-smallest);
     transition: background-color var(--time-blink) ease, color var(--time-blink) ease;;
 }
-header a:hover {
+header ul li a:hover {
     color: var(--color-secondary-dark);
     background-color: var(--color-primary-light);
 }
-header p {
-    margin: var(--space-smallest);
-    padding: var(--space-smallest);
-}
+
 /* MAIN */
 main {
     background-color: inherit;
     padding: var(--space-small);
+}
+
+main ul {
+    list-style: none;
+}
+main ul a {
+    color: inherit;
+    text-decoration: none;
 }
 
 /* FOOTER */
