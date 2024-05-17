@@ -1,0 +1,32 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h2>{{ recipe.name }}</h2>
+    <p>
+        <strong>Author:</strong>
+        {{ recipe.author.username }}
+    </p>
+    <p>
+        <strong>Category:</strong>
+        {{ recipe.get_category_display }}
+    </p>
+    <p>
+        <strong>Equipment:</strong>
+        {{ recipe.equipment }}
+    </p>
+    <p>
+        <strong>Ingredients:</strong>
+        {{ recipe.ingredients }}
+    </p>
+    <p>
+        <strong>Time Needed:</strong>
+        {{ recipe.time_needed }}
+        {{ recipe.get_time_measurement_unit_display }}
+    </p>
+    <p>
+        <strong>Preparation:</strong>
+    </p>
+    <p>
+        {{ recipe.preparation }}
+    </p>
+{% endblock %}

@@ -21,11 +21,11 @@ class Recipe(models.Model):
     # numberOfSuns = models.IntegerField(default=0)
 
     CATEGORIES = (
-        ('drink', 'Piće'),
         ('food', 'Hrana'),
+        ('drink', 'Piće'),
         ('medicine', 'Lijek'),
     )
-    category = models.CharField(max_length=8, choices=CATEGORIES, default=False)
+    category = models.CharField(max_length=8, choices=CATEGORIES, default='food')
 
     equipment = models.TextField(default="")
     ingredients = models.TextField(default="")
@@ -35,9 +35,9 @@ class Recipe(models.Model):
         ('ura', 'h'),
         ('dan', 'dan'),
     )
-    time_measurement_unit = models.CharField(max_length=8, choices=TIME_UNITS, default=False)
+    time_measurement_unit = models.CharField(max_length=8, choices=TIME_UNITS, default='min')
 
-    preperation = models.TextField(default="")
+    preperation = models.TextField(default='')
 
     def __str__(self):
-        return '„' + self.name + '“' + ', autor: ' + self.author
+        return '„' + str(self.name) + '“' + ', autor: ' + str(self.author)

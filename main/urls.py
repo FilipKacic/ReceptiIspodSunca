@@ -14,4 +14,5 @@ urlpatterns = [
     path('edit_recipe/<int:recipe_id>/', user_edit_recipe, name='user_edit_recipe'),
     path('delete_recipe/<int:recipe_id>/', user_delete_recipe, name='user_delete_recipe'),
     path('write_a_recipe', views.write_a_recipe, name='write_a_recipe'),
+    path('recipe/<int:recipe_id>/', views.recipe, name='recipe'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
