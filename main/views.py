@@ -5,8 +5,22 @@ from .models import Recipe
 from .forms import RecipeForm
 
 ## Create your views here.
-def homepage(request):
-    return render(request, 'main/homepage.html')
+def saved_recipes(request):
+    saved_recipes = Recipe.objects.all() # DODATI OGRANIČENJE!!!
+    search_query = request.GET.get('search_query', '')
+    category = request.GET.get('category', '')  # Get the category parameter from the URL query string
+    
+    filtered_recipes = saved_recipes
+    
+    if search_query:
+        filtered_recipes = filtered_recipes.filter(name__icontains=search_query)
+    if category:  # If category parameter is provided, filter by category
+        filtered_recipes = filtered_recipes.filter(category=category)
+
+    context = {
+        'filtered_recipes': filtered_recipes
+    }
+    return render(request, 'main/saved_recipes.html', context)
 
 def all_recipes(request):
     all_recipes = Recipe.objects.all()

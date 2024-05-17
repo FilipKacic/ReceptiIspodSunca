@@ -8,7 +8,8 @@ from django.conf.urls.static import static
 app_name = 'main'
 
 urlpatterns = [
-    path('recipes_under_the_sun', views.all_recipes, name='all_recipes'),
+    path('all_recipes', views.all_recipes, name='all_recipes'),
+    path('saved_recipes', views.saved_recipes, name='saved_recipes'),
     path('user_recipes', views.user_recipes, name='user_recipes'),
     path('edit_recipe/<int:recipe_id>/', user_edit_recipe, name='user_edit_recipe'),
     path('delete_recipe/<int:recipe_id>/', user_delete_recipe, name='user_delete_recipe'),
