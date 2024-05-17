@@ -1,6 +1,9 @@
 {% extends "base_generic.html" %}
 {% block content %}
     <h2>Korisnikovi recepti</h2>
+    <ul>
+        <li><a href="/main/write_a_recipe">Napiši recept</a></li>
+    </ul>
     <form method="GET" class="form-group">
         <input type="text" name="search_query" placeholder="Pretraži...">
         <button type="submit">Pretraži</button>
