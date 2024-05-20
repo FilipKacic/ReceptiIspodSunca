@@ -58,7 +58,7 @@ header {
 header #authentification {
     display: flex;
     flex-wrap: nowrap;
-    align-items: right;
+    justify-content: flex-end;
 }
 header p {
     margin: var(--space-smallest);
@@ -104,6 +104,7 @@ main {
 
 main ul {
     list-style: none;
+    padding-inline-start: 0;
 }
 main ul a {
     color: inherit;
