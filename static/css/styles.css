@@ -55,7 +55,7 @@ header {
     padding: var(--space-small);
 }
 
-header #authentification {
+#authentification {
     display: flex;
     flex-wrap: nowrap;
     justify-content: flex-end;
