@@ -3,15 +3,15 @@
 {% block login %}
 
     {% if form.errors %}
-    <p>Neispravan unos!</p>
+        <p>Neispravan unos!</p>
     {% endif %}
 
     {% if next %}
-    {% if user.is_authenticated %}
-    <p>Vaš račun nema pristup ovoj stranici. Za nastavak, prijavite se s računom koji ima pristup.</p>
-    {% else %}
-    <p>Prijavite se kako biste vidjeli ovu stranicu.</p>
-    {% endif %}
+        {% if user.is_authenticated %}
+            <p>Vaš račun nema pristup ovoj stranici! Za nastavak, prijavite se s računom koji ima pristup.</p>
+        {% else %}
+            <p>Prijavite se kako biste vidjeli ovu stranicu!</p>
+        {% endif %}
     {% endif %}
 
     <form method="post" action="{% url 'login' %}">
@@ -26,8 +26,8 @@
             <td>{{ form.password }}</td>
         </tr>
     </table>
-    <input type="submit" value="Prijavi se" />
-    <input type="hidden" name="next" value="{{ next }}" />
+    <input type="submit" value="Prijavite se"/>
+    <input type="hidden" name="next" value="{{ next }}"/>
     </form>
 
 {% endblock %}

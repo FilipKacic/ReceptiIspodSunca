@@ -4,8 +4,8 @@
     <form method="GET" class="form-group">
         <input type="text" name="search_query" placeholder="Pretraži...">
         <button type="submit">Pretraži</button>
-    </form>
-    <form method="GET" class="form-group">
+    <!-- </form>
+    <form method="GET" class="form-group"> -->
         <select name="category">
             <option value="">Sve kategorije</option>
             <option value="drink">Piće</option>
@@ -15,9 +15,11 @@
         <button type="submit">Filtriraj</button>
     </form>
     <hr>
-    <ul>
-        {% for recipe in filtered_recipes %}
-            <li><a href="{% url 'main:recipe' recipe_id=recipe.id %}">„{{ recipe.name }}“</a> ~ {{ recipe.author }}</li>
-        {% endfor %}
-    </ul>
+    <div class="recipe-list">
+        <ul>
+            {% for recipe in filtered_recipes %}
+                <li><a href="{% url 'main:recipe' recipe_id=recipe.id %}">„{{ recipe.name }}“</a> ~ {{ recipe.author }}</li>
+            {% endfor %}
+        </ul>
+    </div>
 {% endblock %}

@@ -1,7 +1,10 @@
 {% extends "base_generic.html" %}
 {% block content %}
-    <h2>Napiši recept</h2>
-    <form method="post">
+    <button>
+        <a href="user_recipes">Odustani</a>
+    </button>
+    <h3>Napiši Recept</h3>
+    <form method="post" id="recipe-writing-form">
         {% csrf_token %}
         <div class="form-group">
             <label for="{{ form.name.id_for_label }}">Naziv:</label>
@@ -29,6 +32,8 @@
             <label for="{{ form.preperation.id_for_label }}">Priprema:</label>
             {{ form.preperation }}
         </div>
-        <button type="submit" class="btn btn-primary">Spremi recept</button>
+        <div class="flex-center">
+            <button type="submit" class="btn btn-primary">Spremi recept</button>
+        </div>
     </form>
 {% endblock %}

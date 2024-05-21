@@ -6,26 +6,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recepti Ispod Sunca</title>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}?">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}?v=1">
 </head>
 <body>
     <header>
         <div id="authentification">
             {% if user.is_authenticated %}
-            <p>Prijavljeni korisnik: {{ user.username }}</p>
+            <p>Prijavljeni korisnik:&nbsp;</p>
+            <p>{{ user.username }}</p>
             <form action="{% url 'logout' %}" method="post">
                 {% csrf_token %}
-                <input type="submit" value="Odjavi se">
+                <input type="submit" value="Odjavite se">
             </form>
             {% else %}
-                <ul>
-                    <li><a href="/accounts/login">Prijava</a></li>
-                    {% block login %}
-                    {% endblock %}
-                    <li><a href="/accounts/register">Registracija</a></li>
-                    {% block register %}
-                    {% endblock %}
-                </ul>
+                <nav>
+                    <ul>
+                        <li><a href="/accounts/login">Prijava</a></li>
+                        <li><a href="/accounts/register">Registracija</a></li>
+                        <li>
+                            {% block login %}
+                            {% endblock %}
+                            {% block register %}
+                            {% endblock %}
+                        </li>
+                    </ul>
+                </nav>
             {% endif %}
         </div>
         <h1>Recepti Ispod Sunca</h1>
