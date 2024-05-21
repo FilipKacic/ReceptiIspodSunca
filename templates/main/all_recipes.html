@@ -2,7 +2,7 @@
 {% block content %}
     <h2>Svi Recepti</h2>
     <form method="GET" class="form-group">
-        <input type="text" name="search_query" placeholder="Pretraži...">
+        <input type="text" name="search_query" placeholder="Naziv recepta...">
         <button type="submit">Pretraži</button>
     <!-- </form>
     <form method="GET" class="form-group"> -->
@@ -18,7 +18,7 @@
     <div class="recipe-list">
         <ul>
             {% for recipe in filtered_recipes %}
-                <li><a href="{% url 'main:recipe' recipe_id=recipe.id %}">„{{ recipe.name }}“</a> ~ {{ recipe.author }}</li>
+                <li><a href="{% url 'main:recipe' recipe_id=recipe.id %}" class="non-btn">„{{ recipe.name }}“</a>&nbsp; ~ {{ recipe.author }}</li>
             {% endfor %}
         </ul>
     </div>

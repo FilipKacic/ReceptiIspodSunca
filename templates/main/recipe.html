@@ -1,32 +1,37 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-    <h2>{{ recipe.name }}</h2>
-    <p>
-        <strong>Author:</strong>
-        {{ recipe.author.username }}
-    </p>
-    <p>
-        <strong>Category:</strong>
-        {{ recipe.get_category_display }}
-    </p>
-    <p>
-        <strong>Equipment:</strong>
-        {{ recipe.equipment }}
-    </p>
-    <p>
-        <strong>Ingredients:</strong>
-        {{ recipe.ingredients }}
-    </p>
-    <p>
-        <strong>Time Needed:</strong>
-        {{ recipe.time_needed }}
-        {{ recipe.get_time_measurement_unit_display }}
-    </p>
-    <p>
-        <strong>Preparation:</strong>
-    </p>
-    <p>
-        {{ recipe.preparation }}
-    </p>
+    <div class="recipe" id="recipe" data-recipe-name="{{ recipe.name }}">
+        <h3>„{{ recipe.name }}“</h3>
+        <p>
+            <strong>Autor:&nbsp;</strong>
+            <i>{{ recipe.author.username }}</i>
+        </p>
+        <p>
+            <strong>Kategorija:&nbsp;</strong>
+            {{ recipe.get_category_display }}
+        </p>
+        <p>
+            <strong>Oprema:&nbsp;</strong>
+            {{ recipe.equipment }}
+        </p>
+        <p>
+            <strong>Sastojci:&nbsp;</strong>
+            {{ recipe.ingredients }}
+        </p>
+        <p>
+            <strong>Potrebno vrijeme:&nbsp;</strong>
+            {{ recipe.time_needed }}
+            {{ recipe.get_time_measurement_unit_display }}
+        </p>
+        <p>
+            <strong>Priprema:</strong>
+        </p>
+        <p>
+            {{ recipe.preperation }}
+        </p>
+    </div>
+    <div class="center-btn">
+        <button onclick="saveRecipeAsText()">Spremi recept</button>
+    </div>
 {% endblock %}

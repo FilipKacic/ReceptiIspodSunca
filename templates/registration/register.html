@@ -9,20 +9,12 @@
             <p>Došlo je do greške!</p>
         {% endif %}
 
-        <table>
-            <tr>
-                <td><label for="id_username">Korisničko ime:</label></td>
-                <td>{{ form.username }}</td>
-            </tr>
-            <tr>
-                <td><label for="id_password1">Lozinka:</label></td>
-                <td>{{ form.password1 }}</td>
-            </tr>
-            <tr>
-                <td><label for="id_password2">Potvrdite lozinku:</label></td>
-                <td>{{ form.password2 }}</td>
-            </tr>
-        </table>
+        <ul>
+            <li><label for="id_username">Korisničko ime:</label><br>{{ form.username }}</li>
+            <li><label for="id_password1">Lozinka:</label><br>{{ form.password1 }}</li>
+            <li><label for="id_password2">Potvrdite lozinku:</label><br>{{ form.password2 }}</li>
+        </ul>
+
         <input type="submit" value="Registrirajte se" />
     </form>
 

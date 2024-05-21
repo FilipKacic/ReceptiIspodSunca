@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import MinValueValidator
 
 # Create your models here.
 # class Equipment(models.Model):
@@ -18,7 +19,7 @@ class Recipe(models.Model):
     name = models.CharField(max_length=64, unique=True)
 
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
-    # numberOfSuns = models.IntegerField(default=0)
+    # numberOfSaves = models.IntegerField(default=0)
 
     CATEGORIES = (
         ('food', 'Hrana'),
@@ -29,7 +30,7 @@ class Recipe(models.Model):
 
     equipment = models.TextField(default="")
     ingredients = models.TextField(default="")
-    time_needed = models.IntegerField()
+    time_needed = models.IntegerField(default=1, validators=[MinValueValidator(1)])
     TIME_UNITS = (
         ('min', 'min'),
         ('ura', 'h'),
@@ -37,7 +38,7 @@ class Recipe(models.Model):
     )
     time_measurement_unit = models.CharField(max_length=8, choices=TIME_UNITS, default='min')
 
-    preperation = models.TextField(default='')
+    preperation = models.TextField(default="")
 
     def __str__(self):
         return '„' + str(self.name) + '“' + ', autor: ' + str(self.author)

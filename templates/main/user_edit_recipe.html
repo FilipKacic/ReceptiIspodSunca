@@ -1,9 +1,38 @@
 {% extends "base_generic.html" %}
 {% block content %}
     <h2>Uredi recept</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Spremi promjene</button>
-    </form>
+    <div class="recipe">
+        <form method="post" class="recipe-form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_name">Naziv:</label>
+                {{ form.name }}
+            </div>
+            <div class="form-group">
+                <label for="id_category">Kategorija:</label>
+                {{ form.category }}
+            </div>
+            <div class="form-group">
+                <label for="id_equipment">Oprema:</label>
+                {{ form.equipment }}
+            </div>
+            <div class="form-group">
+                <label for="id_ingredients">Sastojci:</label>
+                {{ form.ingredients }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.time_needed.id_for_label }}">Vrijeme potrebno za pripremu:</label>
+                {{ form.time_needed }}
+                <label for="{{ form.time_measurement_unit.id_for_label }}"></label>
+                {{ form.time_measurement_unit }}
+            </div>
+            <div class="form-group">
+                <label for="id_preperation">Priprema:</label>
+                {{ form.preperation }}
+            </div>
+            <div class="flex-center">
+                <button type="submit" class="btn btn-primary">Spremi promjene</button>
+            </div>
+        </form>
+    </div>
 {% endblock %}

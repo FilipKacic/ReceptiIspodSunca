@@ -16,16 +16,12 @@
 
     <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
-    <table>
-        <tr>
-            <td><label for="id_username">Korisničko ime:</label></td>
-            <td>{{ form.username }}</td>
-        </tr>
-        <tr>
-            <td><label for="id_password">Lozinka:</label></td>
-            <td>{{ form.password }}</td>
-        </tr>
-    </table>
+
+        <ul>
+            <li><label for="id_username">Korisničko ime:</label><br>{{ form.username }}</li>
+            <li><label for="id_password">Lozinka:</label><br>{{ form.password }}</li>
+        </ul>
+
     <input type="submit" value="Prijavite se"/>
     <input type="hidden" name="next" value="{{ next }}"/>
     </form>
