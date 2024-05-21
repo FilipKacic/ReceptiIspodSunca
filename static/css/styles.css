@@ -136,7 +136,7 @@ main {
 }
 
 .recipe-list {
-    display: flex;
+    text-align: center;
 }
 .recipe-list li {
     display: flex;
