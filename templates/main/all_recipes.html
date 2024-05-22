@@ -2,21 +2,22 @@
 {% block content %}
     <h2>Svi Recepti</h2>
     <form method="GET" class="form-group">
-        <input type="text" name="search_query" placeholder="Naziv recepta...">
-        <button type="submit">Pretraži</button>
+        <input type="text" name="search_query" placeholder="Naziv recepta..." value="{{ request.GET.search_query }}">
         <select name="category">
             <option value="">Sve kategorije</option>
-            <option value="drink">Piće</option>
-            <option value="food">Hrana</option>
-            <option value="medicine">Lijek</option>
+            <option value="drink" {% if request.GET.category == "drink" %}selected{% endif %}>Piće</option>
+            <option value="food" {% if request.GET.category == "food" %}selected{% endif %}>Hrana</option>
+            <option value="medicine" {% if request.GET.category == "medicine" %}selected{% endif %}>Lijek</option>
         </select>
-        <button type="submit">Filtriraj</button>
+        <button type="submit">Pretraži/Filtriraj</button>
     </form>
     <hr>
     <div class="recipe-list">
         <ul>
             {% for recipe in filtered_recipes %}
-                <li><a href="{% url 'main:recipe' recipe_id=recipe.id %}" class="non-btn">„{{ recipe.name }}“</a>&nbsp; ~ {{ recipe.author }}</li>
+                <li>
+                    <a href="{% url 'main:recipe' recipe.id %}" class="non-btn">„{{ recipe.name }}“</a>&nbsp; ~ {{ recipe.author }}
+                </li>
             {% endfor %}
         </ul>
     </div>

@@ -2,29 +2,28 @@
 {% block content %}
     <h2>Korisnikovi Recepti</h2>
     {% if user.is_authenticated %}
-        <div >
+        <div>
             <button>
                 <a href="/main/write_a_recipe">Napiši recept</a>
             </button>
         </div>
         <form method="GET" class="form-group">
-            <input type="text" name="search_query" placeholder="Naziv recepta...">
-            <button type="submit">Pretraži</button>
+            <input type="text" name="search_query" placeholder="Naziv recepta..." value="{{ request.GET.search_query }}">
             <select name="category">
                 <option value="">Sve kategorije</option>
-                <option value="drink">Piće</option>
-                <option value="food">Hrana</option>
-                <option value="medicine">Lijek</option>
+                <option value="drink" {% if request.GET.category == "drink" %}selected{% endif %}>Piće</option>
+                <option value="food" {% if request.GET.category == "food" %}selected{% endif %}>Hrana</option>
+                <option value="medicine" {% if request.GET.category == "medicine" %}selected{% endif %}>Lijek</option>
             </select>
-            <button type="submit">Filtriraj</button>
+            <button type="submit">Pretraži/Filtriraj</button>
         </form>
         <hr>
         <div class="recipe-list">
             <ul>
                 {% for recipe in filtered_recipes %}
                     <li>
-                        <a href="{% url 'main:recipe' recipe_id=recipe.id %}" class="non-btn">„{{ recipe.name }}“</a>&nbsp;
-                        <a href="{% url 'main:user_edit_recipe' recipe.id %}" class="btn btn-primary"><button>Uredi</button>
+                        <a href="{% url 'main:recipe' recipe.id %}" class="non-btn">„{{ recipe.name }}“</a>&nbsp;
+                        <a href="{% url 'main:user_edit_recipe' recipe.id %}" class="btn btn-primary"><button>Uredi</button></a>
                         <a href="{% url 'main:user_delete_recipe' recipe.id %}" class="btn btn-primary"><button>Pobriši</button></a>
                     </li>
                 {% endfor %}
@@ -32,6 +31,6 @@
         </div>
     {% else %}
         <p>Niste prijavljeni!</p>
-        <p><button><a href="/accounts/login">Prijavite se</a></button> kako biste vidjeli svoje recepete.</p>
+        <p><button><a href="/accounts/login">Prijavite se</a></button> kako biste vidjeli svoje recepte.</p>
     {% endif %}
 {% endblock %}

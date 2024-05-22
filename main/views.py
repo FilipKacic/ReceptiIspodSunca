@@ -6,40 +6,39 @@ from .forms import RecipeForm
 
 ## Create your views here.
 def all_recipes(request):
-    all_recipes = Recipe.objects.all()
     search_query = request.GET.get('search_query', '')
-    category = request.GET.get('category', '')  # Get the category parameter from the URL query string
-    
-    filtered_recipes = all_recipes
-    
+    category = request.GET.get('category', '')
+
+    recipes = Recipe.objects.all()
+
     if search_query:
-        filtered_recipes = filtered_recipes.filter(name__icontains=search_query)
-    if category:  # If category parameter is provided, filter by category
-        filtered_recipes = filtered_recipes.filter(category=category)
+        recipes = recipes.filter(name__icontains=search_query)
+
+    if category:
+        recipes = recipes.filter(category=category)
 
     context = {
-        'filtered_recipes': filtered_recipes
+        'filtered_recipes': recipes
     }
+    
     return render(request, 'main/all_recipes.html', context)
 
 def user_recipes(request):
-    if request.user.is_authenticated:
-        user_recipes = Recipe.objects.filter(author=request.user)
-    else:
-        user_recipes = Recipe.objects.none()
-
     search_query = request.GET.get('search_query', '')
-    category = request.GET.get('category', '')  # Get the category parameter from the URL query string
+    category = request.GET.get('category', '')
 
-    # Apply filters
+    recipes = Recipe.objects.filter(author=request.user)
+
     if search_query:
-        user_recipes = user_recipes.filter(name__icontains=search_query)
-    if category:  # If category parameter is provided, filter by category
-        user_recipes = user_recipes.filter(category=category)
+        recipes = recipes.filter(name__icontains=search_query)
+
+    if category:
+        recipes = recipes.filter(category=category)
 
     context = {
-        'filtered_recipes': user_recipes,
+        'filtered_recipes': recipes,
     }
+
     return render(request, 'main/user_recipes.html', context)
 
 def user_edit_recipe(request, recipe_id):
