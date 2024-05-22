@@ -1,8 +1,11 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
+    <button>
+        <a href="/main/all_recipes">Natrag</a>
+    </button>
     <div class="recipe" id="recipe" data-recipe-name="{{ recipe.name }}">
-        <h3>„{{ recipe.name }}“</h3>
+        <h3 class="flex-center">„{{ recipe.name }}“</h3>
         <p>
             <strong>Autor:&nbsp;</strong>
             <i>{{ recipe.author.username }}</i>
@@ -32,6 +35,6 @@
         </p>
     </div>
     <div class="center-btn">
-        <button onclick="saveRecipeAsText()">Spremi recept</button>
+        <button onclick="downloadRecipeAsText()">Preuzmi recept</button>
     </div>
 {% endblock %}

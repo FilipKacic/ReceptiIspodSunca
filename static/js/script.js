@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // alert('Heaveno world!');
 });
 
-function saveRecipeAsText() {
+function downloadRecipeAsText() {
     // gets the content of the recipe div
     const recipeDiv = document.getElementById('recipe');
     const recipeContent = recipeDiv.innerText;
