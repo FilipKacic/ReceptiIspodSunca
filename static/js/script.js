@@ -1,5 +1,30 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // alert('Heaveno world!');
+    /* active nav link */
+    const allRecipesLink = document.querySelector('nav ul li:nth-child(1) a');
+    const userRecipesLink = document.querySelector('nav ul li:nth-child(2) a');
+
+    allRecipesLink.addEventListener('click', function(event) {
+        allRecipesLink.classList.add('active');
+        userRecipesLink.classList.remove('active');
+    });
+
+    userRecipesLink.addEventListener('click', function(event) {
+        userRecipesLink.classList.add('active');
+        allRecipesLink.classList.remove('active');
+    });
+
+    /* confirmation of deletion */
+    const deleteButtons = document.querySelectorAll('.delete-btn');
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.preventDefault();
+            const url = this.getAttribute('data-url');
+            const confirmDelete = confirm('Potvrdite brisanje recepta...');
+            if (confirmDelete) {
+                window.location.href = url;
+            }
+        });
+    });
 });
 
 function downloadRecipeAsText() {

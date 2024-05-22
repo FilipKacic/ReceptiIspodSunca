@@ -24,7 +24,7 @@
                     <li>
                         <a href="{% url 'main:recipe' recipe.id %}" class="non-btn">„{{ recipe.name }}“</a>&nbsp;
                         <a href="{% url 'main:user_edit_recipe' recipe.id %}" class="btn btn-primary"><button>Uredi</button></a>
-                        <a href="{% url 'main:user_delete_recipe' recipe.id %}" class="btn btn-primary"><button>Pobriši</button></a>
+                        <a href="{% url 'main:user_delete_recipe' recipe.id %}" class="btn btn-primary delete-btn" data-url="{% url 'main:user_delete_recipe' recipe.id %}"><button>Pobriši</button></a>
                     </li>
                 {% endfor %}
             </ul>

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recepti Ispod Sunca</title>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}?v=1">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}?">
 </head>
 <body>
     <header>
@@ -21,25 +21,19 @@
             {% else %}
                 <nav>
                     <ul>
-                        <li><a href="/accounts/login">Prijava</a></li>
-                        <li><a href="/accounts/register">Registracija</a></li>
-                        <li>
-                            {% block login %}
-                            {% endblock %}
-                            {% block register %}
-                            {% endblock %}
-                        </li>
+                        <li><a href="{% url 'login' %}">Prijava</a></li>
+                        <li><a href="{% url 'register' %}">Registracija</a></li>
                     </ul>
                 </nav>
             {% endif %}
         </div>
         <h1>Recepti Ispod Sunca</h1>
-            <nav>
-                <ul>
-                    <li><a href="/main/all_recipes">Svi Recepti</a></li>
-                    <li><a href="/main/user_recipes">Korisnikovi Recepti</a></li>
-                </ul>
-            </nav>
+        <nav>
+            <ul>
+                <li><a href="{% url 'main:all_recipes' %}" class="{% if request.path == '/main/all_recipes' %}active{% endif %}">Svi Recepti</a></li>
+                <li><a href="{% url 'main:user_recipes' %}" class="{% if request.path == '/main/user_recipes' %}active{% endif %}">Korisnikovi Recepti</a></li>
+            </ul>
+        </nav>
     </header>
     <main>
         <div class="content">
@@ -51,6 +45,6 @@
         <h3>Propovjednik 1:9</h3>
         <p><i>„Što je bilo, opet će biti, i što se činilo, opet će se činiti, i nema ništa novo pod suncem.“</i></p>
     </footer>
-    <script src="{% static 'js/script.js' %}?v=1"></script>
+    <script src="{% static 'js/script.js' %}?"></script>
 </body>
 </html>

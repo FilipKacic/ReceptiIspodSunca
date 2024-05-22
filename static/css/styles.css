@@ -8,10 +8,10 @@
     src: url('../fonts/Itim/Itim-Regular.ttf');
 }
 :root {
-    /* color pallete */
+    /* color palette */
     --color-primary-dark: DarkSlateGray;
     --color-primary-light: LightYellow;
-    --color-secondary-dark: DarkOliveGreen;;
+    --color-secondary-dark: DarkOliveGreen;
     --color-secondary-light: LightSlateGray;
     --extra-light-slate-gray: rgba(166, 216, 232, 0.5);
     --color-shadow: rgba(0, 0, 0, 0.9);
@@ -25,7 +25,7 @@
     --space-extra-small: 3px;
     --space-small: 9px;
     --space-medium: 27px;
-    --space-large: 81PX;
+    --space-large: 81px;
 }
 * {
     box-sizing: border-box;
@@ -36,7 +36,7 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 0 var(--space-small);
 }
 p {
-    display: flex;      
+    display: flex;
     justify-content: center;
     align-items: center;
     margin: 0;
@@ -63,7 +63,7 @@ hr {
     border-width: var(--space-detail);
 }
 form, button {
-    display: flex;    
+    display: flex;
     justify-content: center;
     align-items: center;
     margin: var(--space-small);
@@ -121,10 +121,12 @@ nav ul li a {
     transition: background-color var(--time-blink) ease, color var(--time-blink) ease;
     text-transform: uppercase;
 }
-nav ul li a:hover {
+nav ul li a:hover,
+nav ul li a.active {
     color: var(--color-secondary-dark);
     background-color: var(--color-primary-light);
 }
+
 
 /* MAIN */
 main {
@@ -145,7 +147,6 @@ main {
     margin: var(--space-small);
     padding: var(--space-small);
     background-color: var(--color-light);
-    /* box-shadow: 0 0 var(--space-detail) var(--color-light); */
     border: var(--space-detail) solid var(--color-secondary-light);
     border-radius: var(--space-extra-small);
 }
